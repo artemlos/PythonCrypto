@@ -1,0 +1,9 @@
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\AES\bin\Debug\netcoreapp1.1\AES.deps.json
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\AES\bin\Debug\netcoreapp1.1\AES.runtimeconfig.json
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\AES\bin\Debug\netcoreapp1.1\AES.runtimeconfig.dev.json
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\AES\bin\Debug\netcoreapp1.1\AES.dll
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\AES\bin\Debug\netcoreapp1.1\AES.pdb
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\AES\obj\Debug\netcoreapp1.1\AES.csprojResolveAssemblyReference.cache
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\AES\obj\Debug\netcoreapp1.1\AES.AssemblyInfo.cs
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\AES\obj\Debug\netcoreapp1.1\AES.dll
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\AES\obj\Debug\netcoreapp1.1\AES.pdb

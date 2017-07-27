@@ -1,0 +1,14 @@
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\UnitTestProject1\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\UnitTestProject1\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\UnitTestProject1\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\UnitTestProject1\bin\Debug\netcoreapp1.1\UnitTestProject1.deps.json
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\UnitTestProject1\bin\Debug\netcoreapp1.1\UnitTestProject1.runtimeconfig.json
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\UnitTestProject1\bin\Debug\netcoreapp1.1\UnitTestProject1.runtimeconfig.dev.json
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\UnitTestProject1\bin\Debug\netcoreapp1.1\UnitTestProject1.dll
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\UnitTestProject1\bin\Debug\netcoreapp1.1\UnitTestProject1.pdb
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\UnitTestProject1\bin\Debug\netcoreapp1.1\AES.dll
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\UnitTestProject1\bin\Debug\netcoreapp1.1\AES.pdb
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\UnitTestProject1\obj\Debug\netcoreapp1.1\UnitTestProject1.csprojResolveAssemblyReference.cache
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\UnitTestProject1\obj\Debug\netcoreapp1.1\UnitTestProject1.AssemblyInfo.cs
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\UnitTestProject1\obj\Debug\netcoreapp1.1\UnitTestProject1.dll
+C:\Users\Artem Los\Documents\GitHub\PythonCrypto\AES C#\AES\UnitTestProject1\obj\Debug\netcoreapp1.1\UnitTestProject1.pdb
