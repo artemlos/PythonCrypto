@@ -190,11 +190,9 @@ def find_g():
     
     return (g,root)
 
-def find_order():
+def find_order(g):
     
     r = order_range()
-    
-    g = find_g()
     
     for i in range(int(r[0]), int(r[1])+1):
         
@@ -252,7 +250,8 @@ def verify(g, signature, public_key, hash_value):
 print(isSingular(a,b,prime) == False)
 
 secret = 111
-g = find_g()
+g =  find_g()
+order = find_order(g)
 pub = find_public_key(g, secret)
 
 res = sign(g, secret, 12, 44444)
