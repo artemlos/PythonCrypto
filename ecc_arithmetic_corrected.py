@@ -5,13 +5,16 @@ Created on Sun May 21 14:31:32 2017
 @author: Artem Los
 """
 
-prime = 0xfffffffffffffffffffffffffffffffeffffffffffffffff
-a = 0xfffffffffffffffffffffffffffffffefffffffffffffffc
-b =0x22123dc2395a05caa7423daeccc94760a7d462256bd56916
-
-g =  (0x7d29778100c65a1da1783716588dce2b8b4aee8e228f1896, 0x38a90f22637337334b49dcb66a6dc8f9978aca7648a943b0)
+import random
 
 inf = 0
+
+prime = 11  #2**7-1
+order = 15 #140
+
+# remember to check isSingular(a,b,p) == False
+a = 4
+b = 6
 
 
 # Uses the idea of squareAndMultiply to compute c*p quickly in E. 
@@ -35,7 +38,7 @@ def doubleAndAddOrSubtract(p, c):
     if q == inf:
         return inf
     else:
-        return ((q[0]), (q[1]))
+        return (q[0], q[1])
 
 
 # Adds two points P and Q in E.
@@ -171,3 +174,112 @@ def squareAndMultiply(x,c,n):
         if b[i] == '1':
             z = mod(z*x, n)
     return z
+
+
+def find_g():
+    g = random.randint(0,prime)
+    
+    if mod(prime,4) != 3:
+        print("Cannot use this method to find the root.")
+        return
+    
+    while not(isQuadRes(g, prime)):
+        g = random.randint(0,prime)
+    
+    root = squareAndMultiply(g,3,prime)
+    
+    return (g,root)
+
+def find_order():
+    return countResidues(a, b, prime)+1
+
+def find_public_key(g, secret):
+    return doubleAndAddOrSubtract(g, secret)
+
+def sign(g,secret, k_rnd, hash_val):
+    m = secret
+    k = k_rnd
+    q = order
+    u, v = doubleAndAddOrSubtract(g, k)
+    r = mod(u,q)
+    s = mod(modInverse(k, q) * mod(hash_val + m*r, q), q)
+    
+    # NOTE: if either r==0 or s==0, a new random
+    # value k needs to be chosen
+    
+    return (r,s)
+
+def verify(g, signature, public_key, hash_value):
+    
+    h = hash_value
+    q = order
+
+    r = signature[0]
+    s = signature[1]
+    
+    w = modInverse(s, q)
+    i = mod(w * h, q)
+    j = mod(w*r, q)
+    
+    
+    t1 = doubleAndAddOrSubtract(g, i)
+    t2 = doubleAndAddOrSubtract(public_key, j)
+    
+    r1, _  = addPoints(t1, t2)
+    
+    #return addPoints(t1, t2)
+    return r1 == r
+
+
+print(isSingular(a,b,prime) == False)
+
+secret = 111
+g = (3,5)  #find_g()
+pub = find_public_key(g, secret)
+
+res = sign(g, secret, 12, 44444)
+print(res)
+print(verify(g, res, pub, 44444))
+
+
+
+# https://rosettacode.org/wiki/Miller%E2%80%93Rabin_primality_test#Python:_Probably_correct_answers
+
+def is_Prime(n):
+    """
+    Miller-Rabin primality test.
+ 
+    A return value of False means n is certainly not prime. A return value of
+    True means n is very likely a prime.
+    """
+    if n!=int(n):
+        return False
+    n=int(n)
+    #Miller-Rabin test for prime
+    if n==0 or n==1 or n==4 or n==6 or n==8 or n==9:
+        return False
+ 
+    if n==2 or n==3 or n==5 or n==7:
+        return True
+    s = 0
+    d = n-1
+    while d%2==0:
+        d>>=1
+        s+=1
+    assert(2**s * d == n-1)
+ 
+    def trial_composite(a):
+        if pow(a, d, n) == 1:
+            return False
+        for i in range(s):
+            if pow(a, 2**i * d, n) == n-1:
+                return False
+        return True  
+ 
+    for i in range(8):#number of trials 
+        a = random.randrange(2, n)
+        if trial_composite(a):
+            return False
+ 
+    return True  
+
