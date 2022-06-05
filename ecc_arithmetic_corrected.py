@@ -10,10 +10,10 @@ import random
 inf = 0
 
 prime = 11  #2**7-1
-order = 15 #140
+order = 13 #140
 
 # remember to check isSingular(a,b,p) == False
-a = 4
+a = 1
 b = 6
 
 
