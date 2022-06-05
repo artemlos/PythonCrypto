@@ -176,19 +176,21 @@ def squareAndMultiply(x,c,n):
     return z
 
 
-def find_g():
+def find_g(order):
     g = random.randint(0,prime)
     
     if mod(prime,4) != 3:
         print("Cannot use this method to find the root.")
         return
     
-    while not(isQuadRes(g, prime)):
+    while True: # not(isQuadRes(g, prime)):
         g = random.randint(0,prime)
+        root = squareAndMultiply(g,3,prime)
+        g1 = (g,root)
+        if doubleAndAddOrSubtract(g1, order) == inf:
+            return g1
     
-    root = squareAndMultiply(g,3,prime)
-    
-    return (g,root)
+    return -1
 
 def find_order(g):
     
@@ -246,12 +248,24 @@ def verify(g, signature, public_key, hash_value):
     #return addPoints(t1, t2)
     return r1 == r
 
+def find_gen_order(g):
+    
+    i = 2
+    
+    while doubleAndAddOrSubtract(g, i) != 0:
+        i+=1
+        
+    return i
+
 
 print(isSingular(a,b,prime) == False)
 
+
+order = countResidues(a, b, prime) 
+
 secret = 111
-g =  find_g()
-order = find_order(g)
+g = find_g(order)
+#order = #find_order(g)
 pub = find_public_key(g, secret)
 
 res = sign(g, secret, 12, 44444)
