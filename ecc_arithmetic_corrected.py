@@ -9,8 +9,8 @@ import random
 
 inf = 0
 
-prime = 11  #2**7-1
-order = 13 #140
+prime = 2**7-1
+order = 143
 
 # remember to check isSingular(a,b,p) == False
 a = 1
@@ -191,7 +191,25 @@ def find_g():
     return (g,root)
 
 def find_order():
-    return countResidues(a, b, prime)+1
+    
+    r = order_range()
+    
+    g = find_g()
+    
+    for i in range(int(r[0]), int(r[1])+1):
+        
+        if doubleAndAddOrSubtract(g, i) == inf:
+            return i
+    
+    return -1 #countResidues(a, b, prime)+1
+
+
+def order_range():
+    
+    import math
+    
+    return ( prime +1 -2*math.sqrt(prime), prime +1 +2*math.sqrt(prime) )
+
 
 def find_public_key(g, secret):
     return doubleAndAddOrSubtract(g, secret)
@@ -234,7 +252,7 @@ def verify(g, signature, public_key, hash_value):
 print(isSingular(a,b,prime) == False)
 
 secret = 111
-g = (3,5)  #find_g()
+g = find_g()
 pub = find_public_key(g, secret)
 
 res = sign(g, secret, 12, 44444)
