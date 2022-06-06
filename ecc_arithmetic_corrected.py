@@ -9,8 +9,8 @@ import random
 
 inf = 0
 
-prime = 2**7-1
-order = 143
+prime = 2**17-1
+order = 131307
 
 # remember to check isSingular(a,b,p) == False
 a = 1
@@ -91,7 +91,7 @@ def modInverse(number, base):
         r = base0 - q* number0
         
     if number0 != 1:
-        return -1
+        return 0 #-1
     else:
         return t
     
@@ -243,6 +243,7 @@ def verify(g, signature, public_key, hash_value):
     t1 = doubleAndAddOrSubtract(g, i)
     t2 = doubleAndAddOrSubtract(public_key, j)
     
+    print(addPoints(t1, t2))
     r1, _  = addPoints(t1, t2)
     
     #return addPoints(t1, t2)
@@ -261,14 +262,14 @@ def find_gen_order(g):
 print(isSingular(a,b,prime) == False)
 
 
-order = countResidues(a, b, prime) 
+#order = countResidues(a, b, prime) 
 
 secret = 111
-g = find_g(order)
+g = (89887, 3726)
 #order = #find_order(g)
 pub = find_public_key(g, secret)
 
-res = sign(g, secret, 12, 44444)
+res = sign(g, secret, 16, 44444)
 print(res)
 print(verify(g, res, pub, 44444))
 
